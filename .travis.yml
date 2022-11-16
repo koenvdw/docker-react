@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t koenvdw/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true koenvdw/docker-react npm run test
